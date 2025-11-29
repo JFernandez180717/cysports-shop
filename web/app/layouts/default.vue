@@ -7,11 +7,15 @@
 <template>
   <v-responsive class="border rounded">
     <v-app>
-      <v-app-bar title="CY Sport" color="black"></v-app-bar>
+      <v-app-bar color="black">
+        <v-app-bar-title class="text-h6 ms-3">
+          <v-icon icon="mdi:mdi-apps"></v-icon>
+
+          <span class="ms-1">CY Sport</span>
+        </v-app-bar-title>
+      </v-app-bar>
       <v-main>
-        <v-container>
-          <slot />
-        </v-container>
+        <slot />
       </v-main>
       <v-footer class="text-center d-flex flex-column ga-2 py-4" color="black">
         <div class="d-flex ga-3">
