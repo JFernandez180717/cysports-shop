@@ -7,6 +7,25 @@
   const notifications = shallowRef(false)
   const sound = shallowRef(true)
   const widgets = shallowRef(false)
+
+  const shoppingCart = ref([
+    {
+      name: 'Conjunto 1',
+      price: 45.000
+    },
+    {
+      name: 'Conjunto 2',
+      price: 45.000
+    },
+    {
+      name: 'Conjunto 3',
+      price: 45.000
+    }
+  ])
+
+  function deleteProduct(index) {
+    shoppingCart.value = shoppingCart.value.filter((prod, i) => i != index)
+  }
 </script>
 <template>
   <v-responsive class="border rounded">
@@ -28,7 +47,7 @@
           fullscreen
         >
           <template v-slot:activator="{ props: activatorProps }">
-            <v-badge location="top right" :offset-x="25" :offset-y="10" color="primary" content="99+">
+            <v-badge location="top right" :offset-x="25" :offset-y="10" color="primary" :content="shoppingCart.length">
               <v-btn class="me-4" icon v-bind="activatorProps">
                 <v-icon icon="mdi:mdi-shopping-outline"/>
               </v-btn>
@@ -41,7 +60,7 @@
                 @click="dialog = false"
               ></v-btn>
 
-              <v-toolbar-title>Settings</v-toolbar-title>
+              <v-toolbar-title>Carrito</v-toolbar-title>
 
               <v-toolbar-items>
                 <v-btn
@@ -52,60 +71,37 @@
               </v-toolbar-items>
             </v-toolbar>
 
-            <v-list lines="two">
-              <v-list-subheader>User Controls</v-list-subheader>
-
-              <v-list-item
-                subtitle="Set the content filtering level to restrict apps that can be downloaded"
-                title="Content filtering"
-                link
-              ></v-list-item>
-
-              <v-list-item
-                subtitle="Require password for purchase or use password to restrict purchase"
-                title="Password"
-                link
-              ></v-list-item>
-
-              <v-divider></v-divider>
-
-              <v-list-subheader>General</v-list-subheader>
-
-              <v-list-item
-                subtitle="Notify me about updates to apps or games that I downloaded"
-                title="Notifications"
-                @click="notifications = !notifications"
-              >
-                <template v-slot:prepend>
-                  <v-list-item-action start>
-                    <v-checkbox-btn v-model="notifications" color="primary"></v-checkbox-btn>
-                  </v-list-item-action>
-                </template>
-              </v-list-item>
-
-              <v-list-item
-                subtitle="Auto-update apps at any time. Data charges may apply"
-                title="Sound"
-                @click="sound = !sound"
-              >
-                <template v-slot:prepend>
-                  <v-list-item-action start>
-                    <v-checkbox-btn v-model="sound" color="primary"></v-checkbox-btn>
-                  </v-list-item-action>
-                </template>
-              </v-list-item>
-
-              <v-list-item
-                subtitle="Automatically add home screen widgets"
-                title="Auto-add widgets"
-                @click="widgets = !widgets"
-              >
-                <template v-slot:prepend>
-                  <v-list-item-action start>
-                    <v-checkbox-btn v-model="widgets" color="primary"></v-checkbox-btn>
-                  </v-list-item-action>
-                </template>
-              </v-list-item>
+            <v-list lines="two" height="100%">
+              <v-list-subheader>Productos</v-list-subheader>
+              <v-container class="pa-0 ma-0">
+              <v-row v-for="(product, i) in shoppingCart">
+                <v-col class="pt-5" cols="6" lg="2">
+                  <v-list-item
+                    :subtitle="'$ ' + product.price"
+                    :title="product.name"
+                    :key="i"
+                  >
+                    <v-btn 
+                      class="pa-0 text-red" 
+                      text="Eliminar" 
+                      variant="text"
+                      append-icon="far fa-trash-alt"
+                      @click="deleteProduct(i)"
+                    >
+                    </v-btn>
+                  </v-list-item>
+                </v-col>
+                <v-col class="justify-center" cols="6" lg="1">
+                  <v-card class="ma-auto" variant="tonal" width="150">
+                    <v-img
+                      class="product-img"
+                      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+                      cover
+                    ></v-img>
+                  </v-card>
+                </v-col>
+              </v-row>
+              </v-container>
             </v-list>
           </v-card>
         </v-dialog>
