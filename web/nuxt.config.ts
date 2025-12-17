@@ -1,6 +1,10 @@
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false, // MUY IMPORTANTE para GitHub Pages
+  app: {
+    baseURL: '/cysports-shop/', // 👈 EXACTO al nombre del repo
+  },
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   build: {
@@ -17,5 +21,8 @@ export default defineNuxtConfig({
       },
     },
   },
+  nitro: {
+    preset: 'static'
+  }
 })
 

@@ -1,6 +1,54 @@
 <script setup>
   const model = ref('')
 
+  const newCollection = [
+    { 
+      id: 1,
+      title: 'Chaqueta Beige',
+      price: '$45.000',
+      image: 'images/1000763415.jpg'
+    },
+    { 
+      id: 2,
+      title: 'Chaqueta Café',
+      price: '$45.000',
+      image: 'images/1000763416.jpg'
+    },
+    { 
+      id: 3,
+      title: 'Chaqueta Azul',
+      price: '$45.000',
+      image: 'images/1000763453.jpg'
+    },
+    { 
+      id: 4,
+      title: 'Chaqueta Rosa',
+      price: '$45.000',
+      image: 'images/1000763473.jpg'
+    },
+    { 
+      id: 5,
+      title: 'Chaqueta Negra',
+      price: '$45.000',
+      image: 'images/1000763496.jpg'
+    },
+    { 
+      id: 6,
+      title: 'Chaqueta Azul Claro',
+      price: '$45.000',
+      image: 'images/1000763712.jpg'
+    }
+  ]
+
+  const categories = [
+    { name: 'CONJUNTOS', image: 'images/1000823103.jpg' }, 
+    { name: 'ENTERIZOS', image: 'images/1000822936.jpg' }, 
+    { name: 'LEGGINS', image: 'images/1000763632.jpg' }, 
+    { name: 'TOPS', image: 'images/1000797635.jpg' }, 
+    { name: 'CHAQUETAS', image: 'images/1000763416.jpg' }, 
+    { name: 'FALDA SHORT', image: 'images/1000798036.jpg' }
+  ]
+
   const colors = [
     'indigo',
     'warning',
@@ -56,8 +104,8 @@
         show-arrows
       >
         <v-slide-group-item
-          v-for="n in 15"
-          :key="n"
+          v-for="n in newCollection"
+          :key="n.id"
           v-slot="{ isSelected, toggle, selectedClass }"
         >
           <v-card
@@ -65,16 +113,16 @@
           >
             <v-img
               class="product-img"
-              src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+              :src="n.image"
               cover
             ></v-img>
 
             <v-card-title class="product-title">
-              Conjuto 1
+              {{ n.title }}
             </v-card-title>
 
             <v-card-subtitle class="product-subtitle">
-              $45.000
+              {{ n.price }}
             </v-card-subtitle>
 
             <v-card-actions class="product-actions">
@@ -116,8 +164,8 @@
       </h2>
       <v-row class="mt-8">
         <v-col
-          v-for="category in ['CONJUNTOS', 'ENTERIZOS', 'LEGGINS', 'TOPS', 'CHAQUETAS', 'FALDA SHORT']"
-          :key="category"
+          v-for="category in categories"
+          :key="category.name"
           cols="12"
           sm="6"
           md="4"
@@ -126,12 +174,12 @@
           <nuxt-link to="/product" class="link-category">
             <v-card class="category-card">
               <v-img
-                src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+                :src="category.image"
                 class="align-end category-img"
                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                 cover
               >
-                <v-card-title class="text-white">{{ category }}</v-card-title>
+                <v-card-title class="text-white">{{ category.name }}</v-card-title>
               </v-img>
             </v-card>
           </nuxt-link>

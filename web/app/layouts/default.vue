@@ -66,6 +66,7 @@
                 <v-btn
                   text="Comprar"
                   variant="text"
+                  append-icon="fab fa-whatsapp"
                   @click="dialog = false"
                 ></v-btn>
               </v-toolbar-items>
