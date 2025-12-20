@@ -1,7 +1,10 @@
 <script setup>
   const model = ref('')
+  const productStore = useProductStore();
 
-  const newCollection = [
+  const newCollection = productStore.products.filter((p) => p.isNewCollection);
+
+  /*const newCollection = [
     { 
       id: 1,
       title: 'Chaqueta Beige',
@@ -38,7 +41,7 @@
       price: '$45.000',
       image: 'images/1000763712.jpg'
     }
-  ]
+  ]*/
 
   const categories = [
     { name: 'CONJUNTOS', image: 'images/1000823103.jpg' }, 
@@ -101,6 +104,7 @@
         v-model="model"
         class="pa-4"
         selected-class="bg-success"
+        center-active
         show-arrows
       >
         <v-slide-group-item
@@ -111,14 +115,15 @@
           <v-card
             class="ma-3 product-card"
           >
+            <nuxt-link :to="/product/+n.id" class="link-category">
             <v-img
               class="product-img"
               :src="n.image"
               cover
             ></v-img>
-
+            </nuxt-link>
             <v-card-title class="product-title">
-              {{ n.title }}
+              {{ n.name }}
             </v-card-title>
 
             <v-card-subtitle class="product-subtitle">
