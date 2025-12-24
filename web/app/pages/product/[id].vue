@@ -47,7 +47,7 @@
       <v-col class="px-10" cols="12" lg="6">
         <v-card elevation="0" width="420px">
           <v-img
-            :src="`../../../${product!.image}`"
+            :src="`${product!.image}`"
             cover
             width="450px"
           ></v-img>
