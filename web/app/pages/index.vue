@@ -274,12 +274,12 @@
 /* Responsive - Móviles */
 @media (max-width: 600px) {
   .product-card {
-    height: 320px;
-    width: 200px;
+    height: 400px;
+    width: 282px;
   }
   
   .product-img {
-    height: 180px;
+    height: 280px;
   }
   
   .product-title {
