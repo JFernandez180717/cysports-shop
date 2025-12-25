@@ -5,24 +5,18 @@
     return shoppingcartStore.products;
   }) 
 
-  /*const shoppingCart = ref([
-    {
-      name: 'Conjunto 1',
-      price: 45.000
-    },
-    {
-      name: 'Conjunto 2',
-      price: 45.000
-    },
-    {
-      name: 'Conjunto 3',
-      price: 45.000
-    }
-  ])*/
-
   function deleteProduct(id: number) {
     //shoppingCart.value = shoppingCart.value.filter((prod, i) => i != index)
     shoppingcartStore.removeProduct(id);
+  }
+
+  function sendWhatsapp() {
+    const phone = '573170793578';
+    const listaProductos = shoppingcartStore.products.map(p => `- ${p.name}`).join('\n');
+    const message = 'Hola, deseo comprar los siguientes productos:\n' + listaProductos;
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+    dialog.value = false
   }
 </script>
 <template>
@@ -63,7 +57,7 @@
               text="Comprar"
               variant="text"
               append-icon="fab fa-whatsapp"
-              @click="dialog = false"
+              @click="sendWhatsapp"
             ></v-btn>
           </v-toolbar-items>
         </v-toolbar>
