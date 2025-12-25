@@ -19,10 +19,9 @@ export const useShoppingcartStore = defineStore('shoppingcart', {
       this.products.push(newProduct);
     },
 
-    removeProduct(id: number) {
-      console.log('entra remove');
-      
+    removeProduct(id: number) {      
       this.products = this.products.filter((p) => p.id != id);
     },
-  }
+  }, 
+  persist: true,
 })

@@ -45,11 +45,11 @@
   <v-container class="mt-8 pa-0">
     <v-row>
       <v-col class="px-10" cols="12" lg="6">
-        <v-card elevation="0" width="420px">
+        <v-card elevation="0" width="100%">
           <v-img
             :src="`${product!.image}`"
             cover
-            width="450px"
+            width="100%"
           ></v-img>
         </v-card>
       </v-col>

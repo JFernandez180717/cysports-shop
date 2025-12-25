@@ -1,7 +1,9 @@
 <script setup lang="ts">
   const dialog = shallowRef(false)
   const shoppingcartStore = useShoppingcartStore();
-  const shoppingCart = shoppingcartStore.products;
+  const shoppingCart = computed(() => {
+    return shoppingcartStore.products;
+  }) 
 
   /*const shoppingCart = ref([
     {

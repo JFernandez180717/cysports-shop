@@ -31,5 +31,8 @@ export default defineNuxtConfig({
     preset: 'static'
   },
 
-  modules: ['@pinia/nuxt']
+  modules: [
+    '@pinia/nuxt',
+    'pinia-plugin-persistedstate/nuxt'
+  ]
 })

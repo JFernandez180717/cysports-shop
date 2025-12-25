@@ -34,7 +34,7 @@ export const useProductStore = defineStore('products', {
           category: 'CHAQUETA',
           status: 1,
           isNewCollection: true,
-          description: 'Descripcion de la chaqueta deportiva...',
+          description: 'Descripcion de la chaqueta deportiva Descripcion de la chaqueta deportiva Descripcion de la chaqueta deportiva Descripcion de la chaqueta deportiva',
         },
         { 
           id: 2,
@@ -44,7 +44,7 @@ export const useProductStore = defineStore('products', {
           category: 'CHAQUETA',
           status: 1,
           isNewCollection: true,
-          description: 'Descripcion de la chaqueta deportiva...',
+          description: 'Descripcion de la chaqueta deportiva Descripcion de la chaqueta deportiva Descripcion de la chaqueta deportiva Descripcion de la chaqueta deportiva.',
         },
         { 
           id: 3,
@@ -85,7 +85,7 @@ export const useProductStore = defineStore('products', {
           category: 'CHAQUETA',
           status: 1,
           isNewCollection: true,
-          description: 'Descripcion de la chaqueta deportiva...',
+          description: 'Descripcion de la chaqueta deportiva Descripcion de la chaqueta deportiva Descripcion de la chaqueta deportiva Descripcion de la chaqueta deportiva',
         }
       ],
       loading: false

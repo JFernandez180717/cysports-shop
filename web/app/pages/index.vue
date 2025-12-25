@@ -96,13 +96,13 @@
       </v-carousel-item>
     </v-carousel>
 
-    <v-container class="app-container text-center pt-10">
+    <v-container class="app-container text-center pt-10 pl-0 pr-0" width="98%">
       <h2>
         NUEVA COLECCIÓN
       </h2>
       <v-slide-group
         v-model="model"
-        class="pa-4"
+        class="pt-4 pb-4"
         selected-class="bg-success"
         center-active
         show-arrows
@@ -113,14 +113,14 @@
           v-slot="{ isSelected, toggle, selectedClass }"
         >
           <v-card
-            class="ma-3 product-card"
+            class="ma-2 product-card"
           >
             <nuxt-link :to="/product/+n.id" class="link-category">
-            <v-img
-              class="product-img"
-              :src="n.image"
-              cover
-            ></v-img>
+              <v-img
+                class="product-img"
+                :src="n.image"
+                cover
+              ></v-img>
             </nuxt-link>
             <v-card-title class="product-title">
               {{ n.name }}
@@ -321,12 +321,12 @@
 /* Responsive - Móviles pequeños */
 @media (max-width: 400px) {
   .product-card {
-    height: 280px;
-    width: 180px;
+    height: 400px;
+    width: 232px;
   }
   
   .product-img {
-    height: 160px;
+    height: 250px;
   }
   
   .category-card {
