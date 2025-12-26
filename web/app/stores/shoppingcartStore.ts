@@ -12,6 +12,8 @@ export const useShoppingcartStore = defineStore('shoppingcart', {
 
   getters: {
     totalProducts: (state): number => state.products.length,
+    totalQuantity: (state): number => state.products.reduce((acc, value) => { return acc + value.quantity! }, 0),
+    totaAmount: (state): number => state.products.reduce((acc, value) => { return acc + (value.price * value.quantity!) }, 0),
   },
 
   actions: {

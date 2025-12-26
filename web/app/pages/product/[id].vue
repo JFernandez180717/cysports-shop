@@ -37,6 +37,7 @@
       category: product.value?.category!,
       status: product.value?.status!,
       isNewCollection: product.value?.isNewCollection!,
+      quantity: quantity.value,
     };
     shoppingCartStore.addProduct(productToCart);
   }
@@ -58,7 +59,7 @@
           {{ product!.name }}
         </h1>
         <span>
-          {{ product!.price }}
+          {{ formatCurrency(product!.price, 'COP', 'es-CO') }}
         </span>
         <v-number-input
           v-model="quantity"

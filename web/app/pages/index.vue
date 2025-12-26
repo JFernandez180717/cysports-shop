@@ -4,45 +4,6 @@
 
   const newCollection = productStore.products.filter((p) => p.isNewCollection);
 
-  /*const newCollection = [
-    { 
-      id: 1,
-      title: 'Chaqueta Beige',
-      price: '$45.000',
-      image: 'images/1000763415.jpg'
-    },
-    { 
-      id: 2,
-      title: 'Chaqueta Café',
-      price: '$45.000',
-      image: 'images/1000763416.jpg'
-    },
-    { 
-      id: 3,
-      title: 'Chaqueta Azul',
-      price: '$45.000',
-      image: 'images/1000763453.jpg'
-    },
-    { 
-      id: 4,
-      title: 'Chaqueta Rosa',
-      price: '$45.000',
-      image: 'images/1000763473.jpg'
-    },
-    { 
-      id: 5,
-      title: 'Chaqueta Negra',
-      price: '$45.000',
-      image: 'images/1000763496.jpg'
-    },
-    { 
-      id: 6,
-      title: 'Chaqueta Azul Claro',
-      price: '$45.000',
-      image: 'images/1000763712.jpg'
-    }
-  ]*/
-
   const categories = [
     { name: 'CONJUNTOS', image: 'images/1000823103.jpg' }, 
     { name: 'ENTERIZOS', image: 'images/1000822936.jpg' }, 
@@ -127,7 +88,7 @@
             </v-card-title>
 
             <v-card-subtitle class="product-subtitle">
-              {{ n.price }}
+              {{ formatCurrency(n.price, 'COP', 'es-CO') }}
             </v-card-subtitle>
 
             <v-card-actions class="product-actions">
